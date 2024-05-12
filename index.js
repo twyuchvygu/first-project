@@ -1,4 +1,6 @@
-const chunk = (arr, size) =>
-  Array.from({ length: Math.ceil(arr.length / size) }, (v, i) =>
-    arr.slice(i * size, i * size + size),
-  );
+const gcdRecursive = (a, b) => {
+  if (b === 0) {
+    return a;
+  }
+  return gcdRecursive(b, a % b);
+};
