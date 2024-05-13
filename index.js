@@ -1,6 +1,1 @@
-const gcdRecursive = (a, b) => {
-  if (b === 0) {
-    return a;
-  }
-  return gcdRecursive(b, a % b);
-};
+const zip = (arr1, arr2) => arr1.map((el, i) => [el, arr2[i]]);
