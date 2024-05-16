@@ -1,10 +1,14 @@
-function wiggleSort(nums) {
-  nums.sort((a, b) => a - b);
-  const median = Math.floor((nums.length + 1) / 2);
-  const left = nums.slice(0, median);
-  const right = nums.slice(median);
-  for (let i = 0; i < nums.length; i++) {
-    if (i % 2 === 0) nums[i] = left.pop();
-    else nums[i] = right.pop();
-  }
+function rob(nums) {
+  if (nums.length === 1) return nums[0];
+  const robRange = (start, end) => {
+    let prevMax = 0;
+    let currMax = 0;
+    for (let i = start; i <= end; i++) {
+      const temp = currMax;
+      currMax = Math.max(currMax, prevMax + nums[i]);
+      prevMax = temp;
+    }
+    return currMax;
+  };
+  return Math.max(robRange(0, nums.length - 2), robRange(1, nums.length - 1));
 }
